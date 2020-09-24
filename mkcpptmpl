@@ -30,7 +30,6 @@ echo "/* Program Name: $cpp_impl_file
 int main(int argc, char* argv[])
 {
 
-
     return 0;
 }
 
