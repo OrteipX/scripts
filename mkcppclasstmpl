@@ -1,0 +1,36 @@
+#!/bin/bash
+#mkctmpl
+
+file_name=$1
+overwrite='n'
+
+if [ -z $1 ]; then
+    read -p "File name: " file_name
+fi
+
+cpp_impl_file="$file_name.cpp"
+
+if [ -f ./$cpp_impl_file ]; then
+    read -p  "$file_name already exists! Overwrite? [y/N]? " overwrite
+
+    if [[ "$overwrite" = 'n' || "$overwrite" = 'N' || -z $overwrite ]]; then
+        exit 0
+    fi
+fi
+
+ # c implementation file
+echo "/* Program Name: $cpp_impl_file
+ * Purpose: 
+ * Coder: Ramon Gnan Garcia - 0926596
+ * Date: `date +'%b %d, %Y'`
+ */
+
+
+" > $cpp_impl_file
+
+read -p "Open file? " open_file
+if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
+    vi $cpp_impl_file
+else
+    exit 0
+fi

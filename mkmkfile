@@ -1,0 +1,12 @@
+#!/bin/bash
+#mkmkfile
+
+arr_files=()
+
+for file in *.cpp
+do
+    file=`basename $file .cpp`
+    arr_files=(${arr_files[@]} "$file")
+done
+
+echo "${arr_files[@]}"

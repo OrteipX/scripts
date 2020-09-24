@@ -1,0 +1,63 @@
+#!/bin/bash
+#mkjclasstmpl
+
+file_name=$1
+overwrite='n'
+currentFolder=`basename "$PWD"`
+
+# ask for file name and package name
+if [ -z $1 ]; then
+    read -p "File name: " file_name
+fi
+
+file_name="${file_name}.ino"
+
+folder_name=`basename ${file_name} .ino`
+
+# check if the current folder is actually the same name as package
+if [ ${currentFolder} = ${folder_name} ]; then
+    file_stored="${file_name}"
+else
+    mkdir -p ./$folder_name
+    file_stored="./${folder_name}/${file_name}"
+fi
+
+# check of existance of the file
+if [ -f ${file_stored} ]; then
+    read -p  "$file_name already exists! Overwrite? [y/N] " overwrite
+
+    if [[ "$overwrite" = 'n' || "$overwrite" = 'N' || -z $overwrite ]]; then
+        exit 0
+    fi
+fi
+
+echo "/* Program Name: ${file_name}
+ * Purpose: 
+ * Coder: Ramon Gnan Garcia - 0926596
+ * Date: `date +'%b %d, %Y'`
+ */
+
+void setup()
+{
+
+}
+
+void loop()
+{
+
+}
+
+/*
+ * Method Name: 
+ * Purpose: 
+ * Accepts: 
+ * Returns: 
+ * Date: `date +'%b %d, %Y'`
+ */" > ${file_stored}
+
+read -p "Open file? " open_file
+if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
+    vi ${file_stored}
+else
+    exit 0
+fi

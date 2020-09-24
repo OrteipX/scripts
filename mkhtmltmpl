@@ -1,0 +1,42 @@
+#!/bin/bash
+#mkhtmltmpl
+
+file_name=$1
+overwrite='n'
+
+if [ -z $1 ]; then
+    read -p "File name: " file_name
+fi
+
+file_name="${file_name}.html"
+
+if [ -f ./$file_name ]; then
+    read -p  "$file_name already exists! Overwrite? [y/N]? " overwrite
+
+    if [[ "$overwrite" = 'n' || "$overwrite" = 'N' || -z $overwrite ]]; then
+        exit 0
+    fi
+fi
+
+
+echo "<!DOCTYPE HTML>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="main.css" rel="stylesheet"/>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+</html>" > ${file_name}
+
+read -p "Open file? " open_file
+if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
+    vi ${file_name}
+else
+    exit 0
+fi

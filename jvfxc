@@ -1,0 +1,12 @@
+#!/bin/bash
+#jvcfx.sh
+
+fileName=$1
+
+if [ -z $1 ]; then
+    echo "JavaFx -  cannot compile JavaFx without arguments
+    Usage: jvcfx [arg]"
+else
+    javac --module-path /Users/rggarcia/Documents/javafx-sdk-14/lib --add-modules javafx.controls,javafx.fxml $fileName
+fi
+

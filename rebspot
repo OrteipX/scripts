@@ -1,0 +1,4 @@
+# rebuild_spotlight.sh
+
+read -p "Enter full path to be rebuilt: " path
+sudo mdutil -E $path

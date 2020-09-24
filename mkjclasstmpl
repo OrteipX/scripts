@@ -1,0 +1,66 @@
+#!/bin/bash
+#mkjclasstmpl
+
+file_name=$1
+packageName=$2
+overwrite='n'
+currentFolder=`basename "$PWD"`
+
+# ask for file name and package name
+if [ -z $1 ]; then
+    read -p "File name: " file_name
+fi
+
+file_name="${file_name}.java"
+
+if [ -z $2 ]; then
+    read -p "Package name: " packageName
+fi
+
+# check if the current folder is actually the same name as package
+if [ "${currentFolder}" = "${packageName}" ]; then
+    fileStored="${file_name}"
+else
+    mkdir -p "./$packageName"
+    fileStored="./$packageName/${file_name}"
+fi
+
+# check of existance of the file
+if [ -f "${fileStored}" ]; then
+    read -p  "$file_name already exists! Overwrite? [y/N] " overwrite
+
+    if [[ "$overwrite" = 'n' || "$overwrite" = 'N' || -z $overwrite ]]; then
+        exit 0
+    fi
+fi
+
+#className=`echo ${file_name} | sed 's/.java//g'`
+
+className=`basename "${file_name}" .java`
+
+echo "/* Program Name: "${file_name}"
+ * Purpose: 
+ * Coder: Ramon Gnan Garcia - 0926596
+ * Date: `date +'%b %d, %Y'`
+ */
+
+package "${packageName}";
+
+public class "${className}"
+{
+    /*
+     * Method Name: 
+     * Purpose: 
+     * Accepts: 
+     * Returns: 
+     * Date: `date +'%b %d, %Y'`
+     */
+
+}//end of class" > "${fileStored}"
+
+read -p "Open file? " open_file
+if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
+    vi "${fileStored}"
+else
+    exit 0
+fi

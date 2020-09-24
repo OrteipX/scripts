@@ -1,0 +1,66 @@
+#!/usr/bin/php
+<?php
+   $cliArgs = $_SERVER['argv'];
+   array_shift($cliArgs);
+   $algos = hash_algos();
+   if(count($cliArgs)==0){
+	$cliArgs[]="--help";
+   }
+   
+   $dataset = array(
+	"algo"=>"md5",
+	"input"=>"STDIN",
+	"verbose"=>false,
+	"list"=>false,
+	"help"=>false
+
+   );
+
+   foreach($cliArgs as $arg){
+	if(preg_match("/^[-]*a[lgo]*=/",$arg)){
+		$dataset["algo"]=str_replace("-a=","",$arg);
+		$dataset["algo"]=str_replace("--algo=","",$dataset["algo"]);
+	}
+	if(preg_match("/^[-]*f[ile]*=/",$arg)){
+                $dataset["input"]=str_replace("-f=","",$arg);
+                $dataset["input"]=str_replace("--file=","",$dataset["input"]);
+        }	
+	if(preg_match("/^[-]*v[erbose]*/",$arg)){
+                $dataset["verbose"]=true;
+        }
+	if(preg_match("/^[-]*l[ist]*/",$arg)){
+                $dataset["list"]=true;
+		break;
+        }
+	if(preg_match("/^[-]*h[elp]*/",$arg)){
+                $dataset["help"]=true;
+                break;
+        }
+   }
+
+   if($dataset["help"]){
+	echo "Usage: strhash [OPTS]"."\n";
+	echo " OPTIONS: "."\n";
+	echo " -a|--algo        hash algorithm. Default is md5 "."\n";
+	echo "                    --algo=md2\n";
+	echo " -f|--file        datasource. Default is STDIN "."\n";
+        echo "                    --file=/var/log/syslog\n";
+        echo " -v|--verbose     show more. Default is false "."\n";
+        echo "                    --verbose\n";
+	echo " -l|--list  list available algorithm."."\n";
+        echo "                    --list\n";
+	exit(0);
+   }elseif($dataset["list"]){
+	echo " Available algorithms:\n";
+	echo implode(" | ",$algos)."\n";
+	echo " DEFAULT: [ ".$dataset["algo"]." ]"."\n";
+	exit(0);
+   }
+
+   if($dataset["input"]=="STDIN"){
+	echo hash($dataset["algo"],stream_get_contents(STDIN));
+   }else{
+	echo hash($dataset["algo"],file_get_contents($dataset["input"]));
+   }
+?>
+

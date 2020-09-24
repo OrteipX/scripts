@@ -1,0 +1,100 @@
+#!/usr/bin/env python2
+
+
+import sys
+import re
+import random
+
+num_args = len(sys.argv)
+
+
+class charDict:
+    _chars=( 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', );
+    _schars=('!', '@', '$', '#', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', ';', ':', '?', '.');
+    def getRandomChar(self):
+        rand = random.randint(0, len(self._schars)-1);
+        return self._schars[rand];
+    def getRandomAlpha(self,type="a"):
+        rand = random.randint(0, len(self._chars)-1);
+        if type == "l":
+            return self._chars[rand];
+        if type == "u":
+            return self._chars[rand].upper();
+
+        if random.randint(0, len(self._chars)-1)%2 == 0:
+            return self._chars[rand];
+        else:
+            return self._chars[rand].upper();
+
+def showHelp():
+    print 'Usage: passphrase [opts] [len]';
+    print '[opts] options usage';
+    print ' a       alpha random upper&lower case chars';
+    print ' au      alpha only uppercase chars';
+    print ' al      alpha only lowercase chars';
+    print ' n       numerical chars';
+    print ' s       special chars ! @ $ % ^ & * ( ) _ + - = [ ] { } ; : , . / ?';
+    print ' p       alias for ans option';
+    print '[len]    password length';
+    sys.exit();
+
+
+def main():
+    chars = charDict();
+    passphrase='';
+    types={};
+    while(True):
+        if len(passphrase) == phraselen:
+            break;
+        rType = random.randint(0, 2);
+        if rType in [2,4,6,8]:
+            types['alpa']='';
+            if re.match('.*[l].*', opts):
+                types['alpa']='lower case'
+                passphrase+= chars.getRandomAlpha('l');
+                continue;
+            if re.match('.*[u].*', opts):
+                types["alpa"]='upper case'
+                passphrase+= chars.getRandomAlpha('u');
+                continue;
+            if re.match('.*[pa].*', opts):
+                types["alpa"]='any case'
+                passphrase+= chars.getRandomAlpha();
+        elif rType in [1,3,5]:
+            if re.match('.*[pn].*', opts):
+                types['numbers']=''
+                passphrase+= str(random.randint(0, 10));
+                continue;
+        elif re.match('.*[ps].*', opts):
+            types['special chars']=''
+            passphrase+= str(chars.getRandomChar());
+            continue;
+    utypes=''        
+    if re.match('.*[p].*', opts):
+        utypes = 'any type of chars'
+    else:
+        for idx in  types:
+            utypes+=' '+idx +' '+ types[idx]+','
+        utypes=utypes[:-1]
+        
+    Msg='Generated {} chars length passphrase using \n {}:'.format(phraselen,utypes)        
+    print Msg;
+    print '   '+passphrase
+
+
+if num_args < 3:
+    print 'Error: not enough arguments';
+    showHelp();
+
+opts=sys.argv[1];
+phraselen=int(sys.argv[2]);
+if not re.match('[apnsh]', opts):
+    print 'Error: no valid arguments'; 
+    showHelp();
+if re.match('.*[lu].*[lu].*', opts):
+    print 'Error: option u can not be used with l'; 
+    showHelp();
+elif re.match('[anps]', opts):
+    main();
+else:
+    showHelp();

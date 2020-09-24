@@ -1,0 +1,46 @@
+#!/bin/bash
+#convteclip
+
+currentFolder=`basename "$PWD"`
+destinationFolder="$HOME/eclipse-workspace/"$currentFolder""
+compress='N'
+
+# check if the folder exists already
+if [ -d "$destinationFolder" ]; then
+    printf "conversion: $destinationFolder: Project exists\n"
+    exit 0
+fi
+
+echo "Creating project structure..."
+
+mkdir "$destinationFolder"
+mkdir "$destinationFolder/src"
+mkdir "$destinationFolder/bin"
+
+echo "Placing files inside folders..."
+
+cp *.java "$destinationFolder/src"
+
+for d in */; do
+
+    echo "Creating sub-folders..."
+    mkdir "$destinationFolder/src/$d"
+
+    echo "Copying files..."
+    cp "$d"*.java "$destinationFolder/src/$d"
+
+    echo "Compiling files..."
+    javac -d "$destinationFolder/bin" "$d"/*.java
+
+done
+
+javac -d "$destinationFolder/bin/" "$destinationFolder/src"/*.java
+
+read -p "Do you want to compress the project? [y/N] " compress
+
+if [[ "$compress" = 'y' || "$compress" = 'Y' ]]; then
+    tar -czvf "$destinationFolder/$currentFolder.tar.gz" "$destinationFolder"
+    echo "Project compressed..."
+fi
+
+echo "Done"

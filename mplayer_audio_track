@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo -n "Enter movie path with extension: "
+read moviepath
+mplayer -vo null -ao null -frames 0 -v "/Users/rggarcia/$moviepath" | grep aid
