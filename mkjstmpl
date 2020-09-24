@@ -1,6 +1,25 @@
 #!/bin/bash
 #mkjstmpl
 
+tern_project_file=".tern-project"
+dqt='"'
+
+if [ ! -f ./$tern_project_file ]; then
+    echo "{
+      ${dqt}libs${dqt}: [
+        ],
+      ${dqt}loadEagerly${dqt}: [
+          ${dqt}/Users/rggarcia/js/**/*.js${dqt}
+        ],
+      ${dqt}plugins${dqt}: {
+          ${dqt}requirejs${dqt}: {
+                ${dqt}baseURL${dqt}: ${dqt}./${dqt},
+                ${dqt}paths${dqt}: {}
+              }
+        }
+}" > ${tern_project_file}
+fi
+
 file_name=$1
 overwrite='n'
 
@@ -27,25 +46,6 @@ echo "/* Program Name: ${file_name}
 
 " > ${file_name}
 
-tern_project_file=".tern-project"
-
-if [ -f ./$tern_project_file ]; then
-    exit 0
-fi
-
-echo "{
-  "libs": [
-    ],
-  "loadEagerly": [
-      "/Users/rggarcia/js/**/*.js"
-    ],
-  "plugins": {
-      "requirejs": {
-            "baseURL": "./",
-            "paths": {}
-          }
-    }
-}" > ${tern_project_file}
 
 read -p "Open file? " open_file
 if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
