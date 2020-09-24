@@ -25,7 +25,7 @@ echo "/* Program Name: ${file_name}
  */
 
 
-}" > ${file_name}
+" > ${file_name}
 
 tern_project_file=".tern-project"
 
