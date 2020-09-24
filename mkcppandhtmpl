@@ -22,7 +22,6 @@ fi
 
 # header file
 CAPITALIZED_HEADER="`echo "${file_name}" | tr '[:lower:]' '[:upper:]'`_H"
-first_letter_capitalized="`echo "${file_name:0:1}" | tr '[:lower:]' '[:upper:]'`${file_name:1}"
 
 echo "/* Program Name: $header_file
  * Purpose: 
@@ -33,10 +32,6 @@ echo "/* Program Name: $header_file
 #ifndef $CAPITALIZED_HEADER
 #define $CAPITALIZED_HEADER
 
-class "$first_letter_capitalized"
-{
-
-};
 
 #endif
 " > $header_file
