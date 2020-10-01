@@ -31,11 +31,6 @@ echo "/* Program Name: $header_file
 #ifndef $CAPITALIZED_HEADER
 #define $CAPITALIZED_HEADER
 
-class "$first_letter_capitalized"
-{
-
-};
-
 #endif
 " > $header_file
 
