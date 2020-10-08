@@ -30,7 +30,6 @@ echo "/* Program Name: ${file_name}
 int main(int argc, char * argv[])
 {
 
-
     return 0;
 
 }" > ${file_name}
