@@ -26,7 +26,6 @@ echo "# Program Name: ${file_name}
 # Coder: Ramon Gnan Garcia - 0926596
 # Date: `date +'%b %d, %Y'`
 
-
 " > ${file_name}
 
 read -p "Open file? " open_file
