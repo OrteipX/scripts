@@ -3,6 +3,7 @@
 
 file_name=$1
 overwrite='n'
+dqt='"'
 
 if [ -z $1 ]; then
     read -p "File name: " file_name
@@ -23,11 +24,11 @@ echo "<!DOCTYPE HTML>
 <html>
     <head>
         <title></title>
-        <meta charset="UTF-8">
-        <link href="main.css" rel="stylesheet"/>
+        <meta charset=${dqt}UTF-8${dqt}>
+        <link href=${dqt}main.css${dqt} rel=${dqt}stylesheet${dqt} />
 
         <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src=${dqt}http://html5shiv.googlecode.com/svn/trunk/html5.js${dqt}></script>
         <![endif]-->
 
     </head>
