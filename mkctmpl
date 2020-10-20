@@ -19,8 +19,6 @@ if [ -f ./$file_name ]; then
 fi
 
 echo "/* Program Name: ${file_name}
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 

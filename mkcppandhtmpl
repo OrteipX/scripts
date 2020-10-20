@@ -24,22 +24,17 @@ fi
 CAPITALIZED_HEADER="`echo "${file_name}" | tr '[:lower:]' '[:upper:]'`_H"
 
 echo "/* Program Name: $header_file
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 
 #ifndef $CAPITALIZED_HEADER
 #define $CAPITALIZED_HEADER
 
-
 #endif
 " > $header_file
 
  # c implementation file
 echo "/* Program Name: $cpp_impl_file
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 

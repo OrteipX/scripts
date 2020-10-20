@@ -18,12 +18,9 @@ if [ -f ./$file_name ]; then
     fi
 fi
 
-#className=`echo ${file_name} | sed 's/.java//g'`
 className=`basename $file_name .py`
 
 echo "# Program Name: ${file_name}
-# Purpose: 
-# Coder: Ramon Gnan Garcia - 0926596
 # Date: `date +'%b %d, %Y'`
 
 " > ${file_name}

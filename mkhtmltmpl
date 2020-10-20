@@ -19,7 +19,6 @@ if [ -f ./$file_name ]; then
     fi
 fi
 
-
 echo "<!DOCTYPE HTML>
 <html>
     <head>
@@ -30,9 +29,7 @@ echo "<!DOCTYPE HTML>
         <!--[if lt IE 9]>
         <script src=${dqt}http://html5shiv.googlecode.com/svn/trunk/html5.js${dqt}></script>
         <![endif]-->
-
     </head>
-
 </html>" > ${file_name}
 
 read -p "Open file? " open_file

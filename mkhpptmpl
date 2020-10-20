@@ -23,8 +23,6 @@ CAPITALIZED_HEADER="`echo "${file_name}" | tr '[:lower:]' '[:upper:]'`_H"
 first_letter_capitalized="`echo "${file_name:0:1}" | tr '[:lower:]' '[:upper:]'`${file_name:1}"
 
 echo "/* Program Name: $header_file
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 

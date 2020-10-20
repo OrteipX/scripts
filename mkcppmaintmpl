@@ -1,5 +1,5 @@
 #!/bin/bash
-#mkcpptmpl
+#mkcppmaintmpl
 
 file_name=$1
 overwrite='n'
@@ -20,8 +20,6 @@ fi
 
 
 echo "/* Program Name: ${file_name}
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 

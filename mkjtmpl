@@ -22,8 +22,6 @@ fi
 className=`basename $file_name .java`
 
 echo "/* Program Name: ${file_name}
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 
@@ -32,9 +30,8 @@ public class ${className}
     public static void main(String []args)
     {
 
-    }//end of main
-
-}//end of class" > ${file_name}
+    }
+}" > ${file_name}
 
 read -p "Open file? " open_file
 if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then

@@ -40,8 +40,6 @@ fi
 className=`basename "${file_name}" .java`
 
 echo "/* Program Name: "${file_name}"
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
 
@@ -49,15 +47,8 @@ package "${packageName}";
 
 public interface "${className}"
 {
-    /*
-     * Method Name: 
-     * Purpose: 
-     * Accepts: 
-     * Returns: 
-     * Date: `date +'%b %d, %Y'`
-     */
 
-}//end of class" > "${fileStored}"
+}" > "${fileStored}"
 
 read -p "Open file? " open_file
 if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then

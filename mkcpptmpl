@@ -1,5 +1,5 @@
 #!/bin/bash
-#mkctmpl
+#mkcpptmpl
 
 file_name=$1
 overwrite='n'
@@ -18,20 +18,10 @@ if [ -f ./$cpp_impl_file ]; then
     fi
 fi
 
- # c implementation file
+ # cpp implementation file
 echo "/* Program Name: $cpp_impl_file
- * Purpose: 
- * Coder: Ramon Gnan Garcia - 0926596
  * Date: `date +'%b %d, %Y'`
  */
-
-#include <iostream>
-
-int main(int argc, char* argv[])
-{
-
-    return 0;
-}
 
 " > $cpp_impl_file
 
