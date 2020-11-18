@@ -27,7 +27,7 @@ echo "/* Program Name: ${file_name}
 int main()
 {
 
-    return 0;
+	return 0;
 
 }" > ${file_name}
 

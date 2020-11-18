@@ -37,10 +37,10 @@ using System;
 
 namespace $namespace
 {
-    public interface $class_name
-    {
+	public interface $class_name
+	{
 
-    }
+	}
 }" > ${file_name}
 
 read -p "Open file? " open_file
