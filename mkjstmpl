@@ -7,14 +7,19 @@ dqt='"'
 if [ ! -f ./$tern_project_file ]; then
     echo "{
     ${dqt}libs${dqt}: [
-     ${dqt}browser${dqt},
-     ${dqt}react${dqt}
-   ],
-   ${dqt}plugins${dqt}: {
-       ${dqt}doc_comment${dqt}: null,
-       ${dqt}angular${dqt}: {},
-       ${dqt}node${dqt}: {}
-   }
+    ${dqt}browser${dqt},
+    ${dqt}jquery${dqt},
+    ${dqt}react${dqt}
+  ],
+  ${dqt}plugins${dqt}: {
+      ${dqt}angular${dqt}: {},
+      ${dqt}doc_comment${dqt}: null,
+      ${dqt}es_modules${dqt}: {},
+      ${dqt}node${dqt}: {}
+  },
+  ${dqt}dontLoad${dqt}: [
+      ${dqt}node_modules/**${dqt}
+  ]
 }" > ${tern_project_file}
 fi
 
