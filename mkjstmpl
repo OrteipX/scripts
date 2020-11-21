@@ -6,17 +6,15 @@ dqt='"'
 
 if [ ! -f ./$tern_project_file ]; then
     echo "{
-      ${dqt}libs${dqt}: [
-        ],
-      ${dqt}loadEagerly${dqt}: [
-          ${dqt}/Users/rggarcia/js/**/*.js${dqt}
-        ],
-      ${dqt}plugins${dqt}: {
-          ${dqt}requirejs${dqt}: {
-                ${dqt}baseURL${dqt}: ${dqt}./${dqt},
-                ${dqt}paths${dqt}: {}
-              }
-        }
+    ${dqt}libs${dqt}: [
+     ${dqt}browser${dqt},
+     ${dqt}react${dqt}
+   ],
+   ${dqt}plugins${dqt}: {
+       ${dqt}doc_comment${dqt}: null,
+       ${dqt}angular${dqt}: {},
+       ${dqt}node${dqt}: {}
+   }
 }" > ${tern_project_file}
 fi
 
