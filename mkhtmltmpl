@@ -20,11 +20,13 @@ if [ -f ./$file_name ]; then
 fi
 
 echo "<!DOCTYPE HTML>
-<html>
+<html lang=${dqt}en${dqt}>
 	<head>
 		<title></title>
 		<meta charset=${dqt}UTF-8${dqt}>
+		<meta name=${dqt}viewport${dqt} content=${dqt}width=device-width, initial-scale=1.0${dqt}>
 		<link href=${dqt}${dqt} rel=${dqt}stylesheet${dqt} />
+		<meta http-equiv=${dqt}X-UA-Compatible${dqt} content=${dqt}ie=edge${dqt}>
 
 		<!--[if lt IE 9]>
 		<script src=${dqt}http://html5shiv.googlecode.com/svn/trunk/html5.js${dqt}></script>
