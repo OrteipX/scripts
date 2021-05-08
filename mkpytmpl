@@ -20,7 +20,8 @@ fi
 
 className=`basename $file_name .py`
 
-echo "# Program Name: ${file_name}
+echo "#!/usr/bin/python3
+# Program Name: ${file_name}
 # Date: `date +'%b %d, %Y'`
 
 " > ${file_name}
