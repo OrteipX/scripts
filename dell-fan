@@ -1,0 +1,3 @@
+#!/bin/bash
+
+command sudo /home/$USER/Documents/utilities/dell-bios-fan-control/dell-bios-fan-control $1
