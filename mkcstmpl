@@ -30,8 +30,8 @@ fi
 class_name=`basename $file_name .cs`
 
 echo "/* Program Name: ${file_name}
- * Date: `date +'%b %d, %Y'`
- */
+* Date: `date +'%b %d, %Y'`
+*/
 
 using System;
 
@@ -39,7 +39,6 @@ namespace $namespace
 {
     public class $class_name
     {
-
     }
 }" > ${file_name}
 

@@ -40,14 +40,13 @@ fi
 className=`basename "${file_name}" .java`
 
 echo "/* Program Name: "${file_name}"
- * Date: `date +'%b %d, %Y'`
- */
+* Date: `date +'%b %d, %Y'`
+*/
 
 package "${packageName}";
 
 public interface "${className}"
 {
-
 }" > "${fileStored}"
 
 read -p "Open file? " open_file

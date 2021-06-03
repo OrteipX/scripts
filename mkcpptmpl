@@ -19,15 +19,15 @@ if [ -f ./$cpp_impl_file ]; then
 fi
 
  # cpp implementation file
-echo "/* Program Name: $cpp_impl_file
+ echo "/* Program Name: $cpp_impl_file
  * Date: `date +'%b %d, %Y'`
  */
 
-" > $cpp_impl_file
+ " > $cpp_impl_file
 
-read -p "Open file? " open_file
-if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
-    vi $cpp_impl_file
-else
-    exit 0
-fi
+ read -p "Open file? " open_file
+ if [[ "${open_file}" = 'y' || "${open_file}" = 'Y' ]]; then
+     vi $cpp_impl_file
+ else
+     exit 0
+ fi

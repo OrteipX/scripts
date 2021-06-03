@@ -10,16 +10,16 @@ if [ ! -f ./$tern_project_file ]; then
     ${dqt}browser${dqt},
     ${dqt}jquery${dqt},
     ${dqt}react${dqt}
-  ],
-  ${dqt}plugins${dqt}: {
-      ${dqt}angular${dqt}: {},
-      ${dqt}doc_comment${dqt}: null,
-      ${dqt}es_modules${dqt}: {},
-      ${dqt}node${dqt}: {}
-  },
-  ${dqt}dontLoad${dqt}: [
-      ${dqt}node_modules/**${dqt}
-  ]
+    ],
+    ${dqt}plugins${dqt}: {
+    ${dqt}angular${dqt}: {},
+    ${dqt}doc_comment${dqt}: null,
+    ${dqt}es_modules${dqt}: {},
+    ${dqt}node${dqt}: {}
+},
+${dqt}dontLoad${dqt}: [
+${dqt}node_modules/**${dqt}
+]
 }" > ${tern_project_file}
 fi
 
@@ -41,8 +41,8 @@ if [ -f ./$file_name ]; then
 fi
 
 echo "/* Program Name: ${file_name}
- * Date: `date +'%b %d, %Y'`
- */
+* Date: `date +'%b %d, %Y'`
+*/
 " > ${file_name}
 
 read -p "Open file? " open_file

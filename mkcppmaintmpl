@@ -20,14 +20,13 @@ fi
 
 
 echo "/* Program Name: ${file_name}
- * Date: `date +'%b %d, %Y'`
- */
+* Date: `date +'%b %d, %Y'`
+*/
 
 #include <iostream>
 
 int main(int argc, char * argv[])
 {
-
     return 0;
 
 }" > ${file_name}

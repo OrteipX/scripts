@@ -21,7 +21,7 @@ fi
 className=`basename $file_name .py`
 
 echo "#!/usr/bin/python3
-# Program Name: ${file_name}
+# Name: ${file_name}
 # Date: `date +'%b %d, %Y'`
 
 " > ${file_name}

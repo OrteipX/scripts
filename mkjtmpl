@@ -1,5 +1,5 @@
 #!/bin/bash
-#mkjtmpl
+#mkjxtmpl
 
 file_name=$1
 overwrite='n'
@@ -22,14 +22,13 @@ fi
 className=`basename $file_name .java`
 
 echo "/* Program Name: ${file_name}
- * Date: `date +'%b %d, %Y'`
- */
+* Date: `date +'%b %d, %Y'`
+*/
 
 public class ${className}
 {
     public static void main(String []args)
     {
-
     }
 }" > ${file_name}
 
